@@ -40,7 +40,7 @@ a:hover{text-decoration:underline;}
 
 /*layer special link*/
 .m_layer .layer_special_link{position:absolute;width:12px;height:12px;left:4px;top:9px;-webkit-transition:-webkit-transform .25s linear;transition:transform .25s linear;}
-.m_layer .layer_special_link:hover{-webkit-transform:scale(0.8) rotate(-45deg);rotate(-45deg);}
+.m_layer .layer_special_link:hover{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
 .m_layer .special_status_0{background:#999;}
 .m_layer .special_status_1{background:#26ae96;}
 .m_layer .special_status_2{background:#bfaa31;}
