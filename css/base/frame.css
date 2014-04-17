@@ -1,0 +1,16 @@
+@charset "utf-8";
+/*-----------常用集合--------------------*/
+/*清零样式*/
+@import "../base/reset.css";
+/*常用样式*/
+@import "../base/usually.css";
+/*图标样式*/
+@import "../base/ico.css";
+/*按钮样式*/
+@import "../base/btn.css";
+/*-----------弹层集合--------------------*/
+/*弹层框架样式*/
+@import "../layer/layer_frame.css";
+/*弹层焦点样式*/
+@import "../layer/layer_point.css";
+

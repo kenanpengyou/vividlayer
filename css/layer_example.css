@@ -45,5 +45,12 @@ a:hover{text-decoration:underline;}
 .m_layer .special_status_1{background:#26ae96;}
 .m_layer .special_status_2{background:#bfaa31;}
 
+/*special skill hint*/
+.skill_hint{position:absolute;color:#fff;font-size:18px;font-family:Verdana;text-align:center;left:200px;top:100px;z-index:5000;}
+.skill_item{padding:10px 0;cursor:default;}
+.skill_item_0{text-shadow:0 0 6px #999, 0 0 6px #999, 0 0 6px #999;}
+.skill_item_1{text-shadow:0 0 6px #26ae96,0 0 6px #26ae96, 0 0 6px #26ae96;}
+.skill_item_2{text-shadow:0 0 6px #bfaa31, 0 0 6px #bfaa31, 0 0 6px #bfaa31;}
+
 /*layer mask*/
 .layer_mask{position:fixed;left:0;right:0;top:0;bottom:0;background:black;opacity:.3;filter:alpha(opacity=30);z-index:100;}

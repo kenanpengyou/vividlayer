@@ -2,7 +2,7 @@
  * layer_interact.js
  */
 
-YUI().use("node", function(Y) {
+YUI().use("node", "transition", function(Y) {
     Y.namespace("vividLayer");
 
     // 判断是否支持animation
@@ -600,25 +600,117 @@ YUI().use("node", function(Y) {
         };
     };
 
-    // 浮层的普通拖拽，及special效果
+    // special切换
     Y.vividLayer.specialSetup = function() {
         var Constants = {
             LAYER_CLASS: "m_layer",
             SPECIAL_LINK_CLASS: "layer_special_link",
             SPECIAL_METHOD_PREFIX: "specialEffect",
-            SPECIAL_CLASS_PREFIX: "special_status_"
+            SPECIAL_CLASS_PREFIX: "special_status_",
+            SKILL_HINT_CLASS: "skill_hint",
+            SKILL_LIST_CLASS: "skill_list",
+            SKILL_ITEM_CLASS: "skill_item",
+            HINT_SPACE: 40,
+            HINT_DURATION_1: 0.5,
+            HINT_DURATION_2: 0.5,
+            HINT_DELAY: 0.5,
         };
 
         var doc = Y.one(document),
             layerNodes = Y.all("." + Constants.LAYER_CLASS),
             specialNodes = Y.all("." + Constants.SPECIAL_LINK_CLASS),
+            hintNode = Y.one("." + Constants.SKILL_HINT_CLASS),
+            skillListNode = hintNode.one("." + Constants.SKILL_LIST_CLASS),
+            skillItemNodes = hintNode.all("." + Constants.SKILL_ITEM_CLASS),
             currentLayerNode = null,
             isDragging = false,
             totalIndex = 2;
 
+        // 以一个动画表示状态切换情况
+        function showSkillHint(layerNode, prevIndex, nextIndex){
+            var prevNode = skillItemNodes.item(prevIndex),
+                nextNode = skillItemNodes.item(nextIndex),
+                layerWidth = layerNode.get("offsetWidth"),
+                layerHeight = layerNode.get("offsetHeight"),
+                layerPos = layerNode.getXY(),
+                layerX = layerPos[0],
+                layerY = layerPos[1],
+                hintX = layerX,
+                hintY = 0,
+                hintSpace = Constants.HINT_SPACE;
+
+            if(layerY + layerHeight > doc.get("docScrollY") + doc.get("winHeight") - hintSpace * 2){
+                hintY = layerY - hintSpace * 2;
+            }else{
+                hintY = layerY + layerHeight;
+            }
+
+            skillItemNodes.hide();
+            prevNode.show();
+            nextNode.show();
+
+            hintNode.setStyles({
+                left: hintX,
+                top: hintY
+            });
+
+            skillListNode.setStyle("width", layerWidth);
+
+            hintNode.show();
+
+            prevNode.transition({
+                duration: Constants.HINT_DURATION_1,
+                easing: "ease-in-out",
+                opacity: 0,
+                top: 0,
+                on: {
+                    start: function(){
+                        prevNode.setStyles({
+                            top: hintSpace / 2,
+                            opacity: 1
+                        });
+                    }
+                }
+            });
+
+            nextNode.transition({
+                duration: Constants.HINT_DURATION_1,
+                easing: "ease-in-out",
+                opacity: 1,
+                top: hintSpace / 2 + "px",
+                on: {
+                    start: function(){
+                        nextNode.setStyles({
+                            top: hintSpace,
+                            opacity: 0
+                        });
+                        IsHintRunning = true;
+                    },
+                    end: function(){
+                        nextNode.transition({
+                            duration: Constants.HINT_DURATION_2,
+                            opacity: 0,
+                            delay: Constants.HINT_DELAY
+                        });
+                    },
+                }
+            });
+        }
+
+        function setupHint(){
+            skillItemNodes.setStyles({
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width: "100%"
+            });
+        }
+
         function updateSpecialType(layerNode, linkNode) {
             var specialIndex = layerNode.getData("specialIndex"),
-                effectController = layerNode.getData("effectController");
+                effectController = layerNode.getData("effectController"),
+                prevIndex = specialIndex,
+                nextIndex;
 
             // 更改效果指示灯状态
             linkNode.removeClass(Constants.SPECIAL_CLASS_PREFIX + specialIndex);
@@ -627,6 +719,9 @@ YUI().use("node", function(Y) {
             if (specialIndex > totalIndex) {
                 specialIndex = 0;
             }
+
+            nextIndex = specialIndex;
+            showSkillHint(layerNode, prevIndex, nextIndex);
 
             // 清除前一个效果
             effectController.remove();
@@ -655,6 +750,7 @@ YUI().use("node", function(Y) {
 
         function init() {
             if (layerNodes.size()) {
+                setupHint();
                 bindEvents();
                 // 初始浮层全部都是效果0
                 layerNodes.each(function(layerNode) {
