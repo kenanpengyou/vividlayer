@@ -4,6 +4,7 @@
     <title>Vivid Layer</title>
     <link rel="stylesheet" href="css/layer_example.css">
     <link rel="stylesheet" href="css/vividLayer.css">
+    <link rel="stylesheet" href="css/ribbons.css">
     <script src="http://yui.yahooapis.com/3.15.0/build/yui/yui-min.js"></script>
 </head>
 <body>
@@ -14,16 +15,21 @@
         </div>
         <div class="effects_select">
             <div class="sort_area">
-                <h2 class="sort_title">Flip</h2>
-                <div class="sort_detail"><a class="effect_link" href="javascript:" title="">rotateXTop</a><a class="effect_link" href="javascript:" title="">rotateXBottom</a><a class="effect_link" href="javascript:" title="">rotateYLeft</a><a class="effect_link" href="javascript:" title="">rotateYRight</a></div>
+                <h2 class="sort_title">Two Dimension</h2>
+                <div class="sort_detail">
+                    <a class="effect_link" href="javascript:" title="">scale</a>
+                    <a class="effect_link" href="javascript:" title="">scaleRotate</a>
+                    <a class="effect_link" href="javascript:" title="">scaleRotateX</a>
+                    <a class="effect_link" href="javascript:" title="">scaleRotateY</a>
+                </div>
             </div>
             <div class="sort_area">
-                <h2 class="sort_title">Small to Big</h2>
+                <h2 class="sort_title">Three Dimension</h2>
                 <div class="sort_detail">
-                    <a class="effect_link" href="javascript:" title="">scaleSTB</a>
-                    <a class="effect_link" href="javascript:" title="">scaleRotateSTB</a>
-                    <a class="effect_link" href="javascript:" title="">scaleSTBTopDown</a>
-                    <a class="effect_link" href="javascript:" title="">scaleSTBLeftRight</a>
+                    <a class="effect_link" href="javascript:" title="">rotateXTop</a>
+                    <a class="effect_link" href="javascript:" title="">rotateXBottom</a>
+                    <a class="effect_link" href="javascript:" title="">rotateYLeft</a>
+                    <a class="effect_link" href="javascript:" title="">rotateYRight</a>
                 </div>
             </div>
         </div>
@@ -49,29 +55,6 @@
             </table>
         </div>
     </div>
-    <!--
-    <div id="demo2-layer" class="m_layer" style="left:400px;top:300px;">
-        <div class="layer_shadow">
-            <table>
-                <tr>
-                    <td>
-                        <div class="layer_container">
-                            <div class="layer_header">
-                                <div class="layer_title">Vivid Layer</div>
-                                <a class="layer_special_link special_status_0" href="javascript:" title=""></a>
-                                <a class="layer_close_link" href="javascript:" title=""></a>
-                            </div>
-                            <div class="layer_content">
-                                <div class="declare">This is a awesome!</div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="layer_mask"></div>
-    -->
     <div class="skill_hint" style="display:none;">
         <ul class="skill_list">
             <li class="skill_item skill_item_0">Move</li>
@@ -79,7 +62,9 @@
             <li class="skill_item skill_item_2">Gravity</li>
         </ul>
     </div>
-
+    <div class="ribbon right black">
+      <a href="https://github.com/gongguanfu/wb-contest-layer">Fork it on GitHub</a>
+    </div>
 <script src="js/layer_interact.js"></script>
 </body>
 </html>

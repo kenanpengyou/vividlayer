@@ -299,11 +299,11 @@
 }
 
 /*
-* scaleRotateSTB.css
+* scale.css
 */
 
-.scaleRotateSTBIn,
-.scaleRotateSTBOut{
+.scaleIn,
+.scaleOut{
     -webkit-animation-duration:.25s;
     -webkit-animation-iteration-count:1;
     -webkit-animatino-fill-mode:both;
@@ -312,23 +312,94 @@
     animatino-fill-mode:both;
 }
 
-.scaleRotateSTBIn{
+.scaleIn{
     -webkit-animation-timing-function:ease-out;
     animation-timing-function:ease-out;
 }
 
-.scaleRotateSTBOut{
+.scaleOut{
     -webkit-animation-timing-function:ease-in;
     animation-timing-function:ease-in;
 }
 
 
-.scaleRotateSTBIn{
-    -webkit-animation-name:scaleRotateSTBIn;
-    animation-name:scaleRotateSTBIn;
+.scaleIn{
+    -webkit-animation-name:scaleIn;
+    animation-name:scaleIn;
 }
 
-@-webkit-keyframes scaleRotateSTBIn{
+@-webkit-keyframes scaleIn{
+    0%{
+        -webkit-transform:scale(0,0);
+    }
+    100%{
+        -webkit-transform:scale(1,1);
+    }
+}
+
+@keyframes scaleIn{
+    0%{
+        transform:scale(0,0);
+    }
+    100%{
+        transform:scale(1,1);
+    }
+}
+
+.scaleOut{
+    -webkit-animation-name:scaleOut;
+    animation-name:scaleOut;
+}
+
+@-webkit-keyframes scaleOut{
+    0%{
+        -webkit-transform:scale(1,1);
+    }
+    100%{
+        -webkit-transform:scale(0,0);
+    }
+}
+
+@keyframes scaleOut{
+    0%{
+        transform:scale(1,1);
+    }
+    100%{
+        transform:scale(0,0);
+    }
+}
+
+/*
+* scaleRotate.css
+*/
+
+.scaleRotateIn,
+.scaleRotateOut{
+    -webkit-animation-duration:.25s;
+    -webkit-animation-iteration-count:1;
+    -webkit-animatino-fill-mode:both;
+    animation-duration:.25s;
+    animation-iteration-count:1;
+    animatino-fill-mode:both;
+}
+
+.scaleRotateIn{
+    -webkit-animation-timing-function:ease-out;
+    animation-timing-function:ease-out;
+}
+
+.scaleRotateOut{
+    -webkit-animation-timing-function:ease-in;
+    animation-timing-function:ease-in;
+}
+
+
+.scaleRotateIn{
+    -webkit-animation-name:scaleRotateIn;
+    animation-name:scaleRotateIn;
+}
+
+@-webkit-keyframes scaleRotateIn{
     0%{
         -webkit-transform:scale(0,0) rotate(0deg);
 
@@ -338,7 +409,7 @@
     }
 }
 
-@keyframes scaleRotateSTBIn{
+@keyframes scaleRotateIn{
     0%{
         transform:scale(0,0) rotate(0deg);
     }
@@ -347,12 +418,12 @@
     }
 }
 
-.scaleRotateSTBOut{
-    -webkit-animation-name:scaleRotateSTBOut;
-    animation-name:scaleRotateSTBOut;
+.scaleRotateOut{
+    -webkit-animation-name:scaleRotateOut;
+    animation-name:scaleRotateOut;
 }
 
-@-webkit-keyframes scaleRotateSTBOut{
+@-webkit-keyframes scaleRotateOut{
     0%{
         -webkit-transform:scale(1,1) rotate(0deg);
     }
@@ -361,7 +432,7 @@
     }
 }
 
-@keyframes scaleRotateSTBOut{
+@keyframes scaleRotateOut{
     0%{
         transform:scale(1,1) rotate(0deg);
     }
@@ -371,11 +442,11 @@
 }
 
 /*
-* scaleSTB.css
+* scaleRotateX.css
 */
 
-.scaleSTBIn,
-.scaleSTBOut{
+.scaleRotateXIn,
+.scaleRotateXOut{
     -webkit-animation-duration:.25s;
     -webkit-animation-iteration-count:1;
     -webkit-animatino-fill-mode:both;
@@ -384,101 +455,29 @@
     animatino-fill-mode:both;
 }
 
-.scaleSTBIn{
+.scaleRotateXIn{
     -webkit-animation-timing-function:ease-out;
     animation-timing-function:ease-out;
 }
 
-.scaleSTBOut{
+.scaleRotateXOut{
     -webkit-animation-timing-function:ease-in;
     animation-timing-function:ease-in;
 }
 
 
-.scaleSTBIn{
-    -webkit-animation-name:scaleSTBIn;
-    animation-name:scaleSTBIn;
+.scaleRotateXIn{
+    -webkit-animation-name:scaleRotateXIn;
+    animation-name:scaleRotateXIn;
 }
 
-@-webkit-keyframes scaleSTBIn{
-    0%{
-        -webkit-transform:scale(0,0);
-    }
-    100%{
-        -webkit-transform:scale(1,1);
-    }
-}
-
-@keyframes scaleSTBIn{
-    0%{
-        transform:scale(0,0);
-    }
-    100%{
-        transform:scale(1,1);
-    }
-}
-
-.scaleSTBOut{
-    -webkit-animation-name:scaleSTBOut;
-    animation-name:scaleSTBOut;
-}
-
-@-webkit-keyframes scaleSTBOut{
-    0%{
-        -webkit-transform:scale(1,1);
-    }
-    100%{
-        -webkit-transform:scale(0,0);
-    }
-}
-
-@keyframes scaleSTBOut{
-    0%{
-        transform:scale(1,1);
-    }
-    100%{
-        transform:scale(0,0);
-    }
-}
-
-/*
-* scaleSTBLeftRight.css
-*/
-
-.scaleSTBLeftRightIn,
-.scaleSTBLeftRightOut{
-    -webkit-animation-duration:.25s;
-    -webkit-animation-iteration-count:1;
-    -webkit-animatino-fill-mode:both;
-    animation-duration:.25s;
-    animation-iteration-count:1;
-    animatino-fill-mode:both;
-}
-
-.scaleSTBLeftRightIn{
-    -webkit-animation-timing-function:ease-out;
-    animation-timing-function:ease-out;
-}
-
-.scaleSTBLeftRightOut{
-    -webkit-animation-timing-function:ease-in;
-    animation-timing-function:ease-in;
-}
-
-
-.scaleSTBLeftRightIn{
-    -webkit-animation-name:scaleSTBLeftRightIn;
-    animation-name:scaleSTBLeftRightIn;
-}
-
-@-webkit-keyframes scaleSTBLeftRightIn{
+@-webkit-keyframes scaleRotateXIn{
     0%{
         -webkit-transform:scale(0,0) translateX(0) rotate(0deg);
         opacity:0;
     }
 
     50%{
-
         -webkit-transform:scale(0.5,0.5) translateX(-600px) rotate(360deg);
         opacity:0.5;
     }
@@ -492,7 +491,7 @@
 
 
 
-@keyframes scaleSTBLeftRightIn{
+@keyframes scaleRotateXIn{
     0%{
         transform:scale(0,0) translateX(0) rotate(0deg);
         opacity:0;
@@ -511,12 +510,12 @@
     }
 }
 
-.scaleSTBLeftRightOut{
-    -webkit-animation-name:scaleSTBLeftRightOut;
-    animation-name:scaleSTBLeftRightOut;
+.scaleRotateXOut{
+    -webkit-animation-name:scaleRotateXOut;
+    animation-name:scaleRotateXOut;
 }
 
-@-webkit-keyframes scaleSTBLeftRightOut{
+@-webkit-keyframes scaleRotateXOut{
     0%{
         -webkit-transform:scale(1,1) translateX(0) rotate(0deg);
         opacity:1;
@@ -535,7 +534,7 @@
     }
 }
 
-@keyframes scaleSTBLeftRightOut{
+@keyframes scaleRotateXOut{
     0%{
         transform:scale(1,1) translateX(0) rotate(0deg);
         opacity:1;
@@ -555,11 +554,11 @@
 }
 
 /*
-* scaleSTBTopDown.css
+* scaleRotateY.css
 */
 
-.scaleSTBTopDownIn,
-.scaleSTBTopDownOut{
+.scaleRotateYIn,
+.scaleRotateYOut{
     -webkit-animation-duration:.25s;
     -webkit-animation-iteration-count:1;
     -webkit-animatino-fill-mode:both;
@@ -568,23 +567,23 @@
     animatino-fill-mode:both;
 }
 
-.scaleSTBTopDownIn{
+.scaleRotateYIn{
     -webkit-animation-timing-function:ease-out;
     animation-timing-function:ease-out;
 }
 
-.scaleSTBTopDownOut{
+.scaleRotateYOut{
     -webkit-animation-timing-function:ease-in;
     animation-timing-function:ease-in;
 }
 
 
-.scaleSTBTopDownIn{
-    -webkit-animation-name:scaleSTBTopDownIn;
-    animation-name:scaleSTBTopDownIn;
+.scaleRotateYIn{
+    -webkit-animation-name:scaleRotateYIn;
+    animation-name:scaleRotateYIn;
 }
 
-@-webkit-keyframes scaleSTBTopDownIn{
+@-webkit-keyframes scaleRotateYIn{
     0%{
         -webkit-transform:scale(0,0) translateY(0) rotate(0deg);
         opacity:0;
@@ -605,7 +604,7 @@
 
 
 
-@keyframes scaleSTBTopDownIn{
+@keyframes scaleRotateYIn{
     0%{
         transform:scale(0,0) translateY(0) rotate(0deg);
         opacity:0;
@@ -624,12 +623,12 @@
     }
 }
 
-.scaleSTBTopDownOut{
-    -webkit-animation-name:scaleSTBTopDownOut;
-    animation-name:scaleSTBTopDownOut;
+.scaleRotateYOut{
+    -webkit-animation-name:scaleRotateYOut;
+    animation-name:scaleRotateYOut;
 }
 
-@-webkit-keyframes scaleSTBTopDownOut{
+@-webkit-keyframes scaleRotateYOut{
     0%{
         -webkit-transform:scale(1,1) translateY(0) rotate(0deg);
         opacity:1;
@@ -648,7 +647,7 @@
     }
 }
 
-@keyframes scaleSTBTopDownOut{
+@keyframes scaleRotateYOut{
     0%{
         transform:scale(1,1) translateY(0) rotate(0deg);
         opacity:1;

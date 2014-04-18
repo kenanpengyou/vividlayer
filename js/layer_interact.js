@@ -217,8 +217,10 @@ YUI().use("node", "transition", function(Y) {
 
         // 由于摩擦力和碰撞损耗而停止
         function endFreeMove() {
-            groundGraphicNode.remove();
-            groundGraphicNode = null;
+            if(groundGraphicNode){
+                groundGraphicNode.remove();
+                groundGraphicNode = null;
+            }
         }
 
         function handleDocMouseup(event) {
@@ -284,9 +286,7 @@ YUI().use("node", "transition", function(Y) {
         return {
             remove: function() {
                 unbindEvents();
-                if(groundGraphicNode){
-                    endFreeMove();
-                }
+                endFreeMove();
             }
         };
     };
